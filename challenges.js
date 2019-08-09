@@ -426,11 +426,26 @@ function isPalindrome(string) {
     // what we do next is fill the palArr that we declared earlier until we've 
     // iterated through palLength; this is because, at this point, origStr is
     // an array with an even number of elements; palindromes are, by definition,
-    // spelled the same way from the first letter until the pivot point
+    // spelled the same way from the first letter until the pivot point; so by the
+    // time this for loop is done, we will have filled palArr with the "first half"
+    // of the palindrome that we will check the "second half" against
   }
   palArr.reverse();
+  // we REVERSE the order of palArr because the "second half" is a REFLECTION of
+  // the first
   for (i = 0; (i + palLength) < origStr.length; i++) {
     if (palArr[i] !== origStr[i + palLength]) return false;
+    // here, we take advantage of palLength and use it as an OFFSET to the counter, i;
+    // recalling that origStr is still an array with an even number of indices and
+    // that it is DOUBLE the length of palArr, we can safely use palLength as an offset
+    // without concern of going out of bounds; the if statement then simply checks
+    // whether the element at index palArr[i] is equal to origStr[i+palLength]; 
+    // meaning that if there is a SINGLE CASE where the chars at these indices DON'T
+    // match, return false; otherwise return true (below)
+
+    // ALSO NOTE: how we keep things as general as possible; letting the condition of
+    // the for loop be "(i+palLength) < origStr.length" so that this will work with any
+    // string argument
   }
   return true;
 

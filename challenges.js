@@ -401,6 +401,11 @@ isPalindrome(''); //=> true
 
 function isPalindrome(string) {
   let origStr = string.toLowerCase().split("").filter(char => char !== " ");
+  // first things first, we even the playing field by changing the entire string
+  // that's passed in into LOWER case; next, we split on an empty string ("") so
+  // that we create an array where each char has its own index; we got a step further
+  // by filtering this newly created array to take out the space char (this step
+  // is optional as the function will still work even if we didn't filter)
   let palArr = [];
   let palLength = 0;
 

@@ -407,9 +407,16 @@ function isPalindrome(string) {
   // by filtering this newly created array to take out the space char (this step
   // is optional as the function will still work even if we didn't filter)
   let palArr = [];
-  let palLength = 0;
+  let palLength;
+  // next, we declare two variables; palArr, which is an empty array, and palLength,
+  // which will be the effective length of a palindrome (you'll see what we mean shortly)
 
   if (origStr.length % 2 !== 0) origStr.splice(((origStr.length - 1) / 2), 1);
+  // what we do in the line above is check IF the length of origStr is ODD;
+  // if the length IS odd, then we SPLICE out the "odd" char which serves as the
+  // pivot point for the palindrome; for example, consider racecar; racecar has 7
+  // letters; the letter 'e' is the pivot point, and being such, it is clear why the
+  // pivot point can be ANY char; this is precisely why we remove it
   palLength = origStr.length / 2;
   for (i = 0; i < palLength; i++) {
     palArr[i] = origStr[i];

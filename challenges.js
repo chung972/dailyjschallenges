@@ -416,10 +416,17 @@ function isPalindrome(string) {
   // if the length IS odd, then we SPLICE out the "odd" char which serves as the
   // pivot point for the palindrome; for example, consider racecar; racecar has 7
   // letters; the letter 'e' is the pivot point, and being such, it is clear why the
-  // pivot point can be ANY char; this is precisely why we remove it
+  // pivot point can be ANY char; this is precisely why we remove it;
+  // also, the .splice() method allows us to pinpoint and mutate a certain index/indices
   palLength = origStr.length / 2;
+  // once we have spliced out the pivot point (that is, if origStr.length was odd),
+  // we can proceed to HALF the remaining EVEN palindrome
   for (i = 0; i < palLength; i++) {
     palArr[i] = origStr[i];
+    // what we do next is fill the palArr that we declared earlier until we've 
+    // iterated through palLength; this is because, at this point, origStr is
+    // an array with an even number of elements; palindromes are, by definition,
+    // spelled the same way from the first letter until the pivot point
   }
   palArr.reverse();
   for (i = 0; (i + palLength) < origStr.length; i++) {
